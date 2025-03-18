@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class AIBotChase : MonoBehaviour
 {
     public Transform player;  // Reference to the player
