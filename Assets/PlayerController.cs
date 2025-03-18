@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class Example : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 velocity;
@@ -11,19 +11,20 @@ public class Example : MonoBehaviour
     private float speed = 5.0f;
     private float gravity = -9.81f;
     private float jumpHeight = 2.0f;
-    private new Camera camera;
+    [HideInInspector] public new Camera camera;
     private RaycastHit[] interactionHits = new RaycastHit[1];
     [SerializeField] private float maxInteractionDistance = 20.0f;
     [SerializeField] private int interactablesLayerMask = 1 << 3;
 
+    public GunController gunController;
+
+    public static PlayerController instance { get; private set; }
+
     void Start()
     {
+        instance = this;
         camera = Camera.main;
         controller = GetComponent<CharacterController>();
-        if (controller == null)
-        {
-            Debug.LogError("No CharacterController attached to the player.");
-        }
     }
 
     void Update()
@@ -36,7 +37,9 @@ public class Example : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            int d = Physics.RaycastNonAlloc(new Ray(camera.transform.position, camera.transform.rotation * camera.transform.forward), interactionHits, maxInteractionDistance, interactablesLayerMask, QueryTriggerInteraction.Collide);
+            int d = 
+                Physics.RaycastNonAlloc(new Ray(camera.transform.position, camera.transform.rotation * camera.transform.forward), interactionHits, maxInteractionDistance, interactablesLayerMask, QueryTriggerInteraction.Collide);
+            
             if (d == 0 || !interactionHits[0].transform.gameObject.TryGetInterface<IInteractable>(out IInteractable interactable)) return; // no interactables found
 
             interactable.Interact();
@@ -88,6 +91,7 @@ public class Example : MonoBehaviour
     {
         if (!Application.isPlaying) return;
 
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(camera.transform.position, camera.transform.rotation * camera.transform.forward * maxInteractionDistance);
     }
 }
