@@ -94,6 +94,6 @@ public class PlayerController : MonoBehaviour
         if (!Application.isPlaying) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(camera.transform.position, camera.transform.rotation * camera.transform.forward * maxInteractionDistance);
+        Gizmos.DrawLine(camera.transform.position, camera.transform.position + camera.transform.rotation * camera.transform.forward * maxInteractionDistance);
     }
 }
