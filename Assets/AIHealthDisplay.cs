@@ -4,7 +4,7 @@ using UnityEngine.UI;  // For Text UI
 public class AIHealthDisplay : MonoBehaviour
 {
     public Text healthText;  // Reference to the Text component on the canvas
-    public AIHealth aiHealth;  // Reference to the AIHealth script (we’ll link it in the inspector)
+    public HealthComponent aiHealth;  // Reference to the AIHealth script (we’ll link it in the inspector)
 
     void Update()
     {

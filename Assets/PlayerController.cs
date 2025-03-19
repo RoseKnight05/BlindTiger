@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(HealthComponent))]
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxInteractionDistance = 20.0f;
     [SerializeField] private int interactablesLayerMask = 1 << 3;
 
-    void Start()
+    void Awake()
     {
         instance = this;
         camera = Camera.main;

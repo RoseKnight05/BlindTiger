@@ -24,7 +24,7 @@ public class GunController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            currentWeapon?.Use();
+            currentWeapon?.TryUse();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))

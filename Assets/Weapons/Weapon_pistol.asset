@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_pistol
   m_EditorClassIdentifier: 
   damagePerUse: 60
+  range: 10
+  delay: 2
   name: pistol
   index: 0

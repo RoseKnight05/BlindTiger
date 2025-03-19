@@ -1,44 +1,36 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AIBotChase : MonoBehaviour
 {
-    public Transform player;  // Reference to the player
+    private Transform player;
     public float chaseRange = 10f;  // The distance within which the AI starts chasing
     public float stopRange = 2f;    // The distance at which the AI stops chasing the player
 
-    private NavMeshAgent agent;  // Reference to the NavMeshAgent
+    private NavMeshAgent agent;
+    public float DistanceToPlayer { get { return Vector3.Distance(transform.position, player.position); } }
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();  // Get the NavMeshAgent component
+        agent = GetComponent<NavMeshAgent>();
+
+        player = PlayerController.instance.transform;
+        Assert.IsNotNull(player, "Player reference must not be null.");
     }
 
     void Update()
     {
-        if (player != null)
+        float distance = DistanceToPlayer;
+
+        if (distance <= chaseRange && distance > stopRange)
         {
-            // Calculate the distance to the player
-            float distance = Vector3.Distance(transform.position, player.position);
-
-            // Log the distance to the console to see if it's working
-            Debug.Log("Distance to player: " + distance);
-
-            if (distance <= chaseRange && distance > stopRange) // Within chase range
-            {
-                Debug.Log("Chasing the player."); // Debug message when chasing
-                agent.SetDestination(player.position);  // Move towards player
-            }
-            else
-            {
-                Debug.Log("Stopping chase."); // Debug message when stopping
-                agent.SetDestination(transform.position);  // Stop if within stop range
-            }
+            agent.SetDestination(player.position);
         }
         else
         {
-            Debug.LogWarning("Player is not assigned!");  // Warning if player reference is missing
+            agent.SetDestination(transform.position);
         }
     }
 }

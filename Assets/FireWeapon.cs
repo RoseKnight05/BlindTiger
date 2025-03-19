@@ -4,6 +4,8 @@ public class FireWeapon : Weapon
 {
     public ParticleSystem gunfireEffect;
 
+    public override bool IsReady => Time.time - LastTimeUsed > data.delay;
+
     public override void Select()
     {
         gameObject.SetActive(true);
@@ -14,8 +16,10 @@ public class FireWeapon : Weapon
         gameObject.SetActive(false);
     }
 
-    public override void Use()
+    public override bool TryUse()
     {
+        if (!base.TryUse()) return false;
+
         Debug.Log("Shot fired!");
         if (gunfireEffect != null)
         {
@@ -28,13 +32,15 @@ public class FireWeapon : Weapon
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(PlayerController.instance.camera.transform.position, PlayerController.instance.camera.transform.forward, out hit, data.range))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, data.range))
         {
-            AIHealth aiHealth = hit.transform.GetComponent<AIHealth>();
-            if (aiHealth != null)
+            HealthComponent healthComp = hit.transform.GetComponent<HealthComponent>();
+            if (healthComp != null)
             {
-                aiHealth.TakeDamage(data.damagePerUse);
+                healthComp.TakeDamage(data.damagePerUse);
             }
         }
+
+        return true;
     }
 }
