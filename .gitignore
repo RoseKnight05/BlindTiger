@@ -72,3 +72,19 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+/.vsconfig
+*.csproj
+/Assets/Blind TigerSettings.lighting
+/Assets/Blind TigerSettings.lighting.meta
+/Assets/Resources.meta
+/Assets/Resources/BillingMode.json
+/Assets/Resources/BillingMode.json.meta
+/Packages/manifest.json
+/Packages/packages-lock.json
+/ProjectSettings/MemorySettings.asset
+/ProjectSettings/PackageManagerSettings.asset
+/ProjectSettings/Packages/com.unity.services.core/Settings.json
+/ProjectSettings/PresetManager.asset
+/ProjectSettings/SceneTemplateSettings.json
+/ProjectSettings/VersionControlSettings.asset
+/ProjectSettings/VFXManager.asset
