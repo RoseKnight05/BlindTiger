@@ -24,7 +24,12 @@ public class GunController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            currentWeapon?.Use();
+            currentWeapon?.TryUse();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            DropWeapon();
         }
     }
 
@@ -36,5 +41,17 @@ public class GunController : MonoBehaviour
         currentWeapon = data2weapon[item.weaponData]; // select weapon
         currentWeapon.Select();
         item.Unrecord(); // make the new weapon non-interactable
+    }
+
+    public void DropWeapon()
+    {
+        if (currentWeapon == null) return;
+
+        Vector3 pos = currentWeapon.transform.position;
+        currentWeapon.Deselect();
+        WeaponItem item = WeaponItem.allItems.Find(wi => !wi.gameObject.activeSelf && wi.weaponData == currentWeapon.data);
+        item.Record();
+        item.transform.position = pos;
+        currentWeapon = null;
     }
 }

@@ -1,26 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(HealthComponent))]
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance { get; private set; }
+
+    [HideInInspector] public new Camera camera;
+    public GunController gunController;
+
+    [Header("Locomotion")]
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
-    private float speed = 5.0f;
-    private float gravity = -9.81f;
-    private float jumpHeight = 2.0f;
-    [HideInInspector] public new Camera camera;
+    [SerializeField] private float walkSpeed = 5.0f;
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float jumpHeight = 2.0f;
+    [SerializeField] private float sprintFactor = 1.25f;
+    private bool isSprinting = false;
+
+    [Header("Interaction")]
     private RaycastHit[] interactionHits = new RaycastHit[1];
     [SerializeField] private float maxInteractionDistance = 20.0f;
     [SerializeField] private int interactablesLayerMask = 1 << 3;
 
-    public GunController gunController;
-
-    public static PlayerController instance { get; private set; }
-
-    void Start()
+    void Awake()
     {
         instance = this;
         camera = Camera.main;
@@ -61,20 +65,17 @@ public class PlayerController : MonoBehaviour
         velocity.x = 0f;
         velocity.z = 0f;
 
-        // Get raw input for horizontal and vertical movement
-        float moveX = Input.GetAxisRaw("Horizontal");  // A/D or Left/Right arrow keys
-        float moveZ = Input.GetAxisRaw("Vertical");    // W/S or Up/Down arrow keys
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+        isSprinting = Input.GetKey(KeyCode.LeftShift);
 
-        // Apply movement using raw input
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
-        // Apply movement to the controller with respect to speed and frame time
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * walkSpeed * (isSprinting ? sprintFactor : 1) * Time.deltaTime);
 
-        // Jumping: apply jump force when pressing the jump button and when grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);  // Jump force calculation
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         // Apply gravity when not grounded
@@ -92,6 +93,6 @@ public class PlayerController : MonoBehaviour
         if (!Application.isPlaying) return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(camera.transform.position, camera.transform.rotation * camera.transform.forward * maxInteractionDistance);
+        Gizmos.DrawLine(camera.transform.position, camera.transform.position + camera.transform.rotation * camera.transform.forward * maxInteractionDistance);
     }
 }

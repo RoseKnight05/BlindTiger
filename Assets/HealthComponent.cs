@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AIHealth : MonoBehaviour
+public class HealthComponent : MonoBehaviour
 {
     public float health = 100f;  // AI's starting health
 
