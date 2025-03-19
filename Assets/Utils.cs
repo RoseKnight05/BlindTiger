@@ -7,11 +7,11 @@ public static class Utils
         result = null;
         if (obj == null) return false;
 
-        foreach (var component in obj.GetComponents<MonoBehaviour>())
+        foreach (MonoBehaviour component in obj.GetComponents<MonoBehaviour>())
         {
-            if (component is T found)
+            result = component as T;
+            if (result != null)
             {
-                result = found;
                 return true;
             }
         }
