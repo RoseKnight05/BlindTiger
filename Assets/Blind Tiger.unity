@@ -124,12 +124,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 7c4992feb250546d9827f4b051f0d744, type: 2}
---- !u!1 &40218151 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8448892086490478221, guid: c5b518b9232ba4dd5b63c304a856bec8,
-    type: 3}
-  m_PrefabInstance: {fileID: 568511988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &66033435
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,34 +858,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5324685430579799416, guid: c5b518b9232ba4dd5b63c304a856bec8,
-        type: 3}
-      propertyPath: currentWeapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324685430579799416, guid: c5b518b9232ba4dd5b63c304a856bec8,
-        type: 3}
-      propertyPath: weaponInstances.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5324685430579799416, guid: c5b518b9232ba4dd5b63c304a856bec8,
-        type: 3}
-      propertyPath: weaponInstances.Array.data[0]
-      value: 
-      objectReference: {fileID: 1243336819}
-    - target: {fileID: 8448892086490478221, guid: c5b518b9232ba4dd5b63c304a856bec8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8448892086490478221, guid: c5b518b9232ba4dd5b63c304a856bec8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1243336819}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b518b9232ba4dd5b63c304a856bec8, type: 3}
 --- !u!1 &663465549
 GameObject:
@@ -1623,21 +1593,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1243336819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40218151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7a5153f6aff4643843c15a9c72a72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 25da470b08c30cd4bb98f8ee9ed35863, type: 2}
-  onUseSound: {fileID: 0}
-  gunfireEffect: {fileID: 0}
 --- !u!1 &1350349381
 GameObject:
   m_ObjectHideFlags: 0
