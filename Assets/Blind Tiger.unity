@@ -953,8 +953,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponInstances.Array.data[0]
       value: 
-      objectReference: {fileID: 3553579912466814038, guid: 1687b14fab497844bb8c0ae48e0333ec,
-        type: 3}
+      objectReference: {fileID: 6265441803653368833}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8448892086490478221, guid: c5b518b9232ba4dd5b63c304a856bec8, type: 3}
@@ -3138,6 +3137,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2475590196784694402}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6265441803653368833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3553579912466814038, guid: 1687b14fab497844bb8c0ae48e0333ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 2475590196784694402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7a5153f6aff4643843c15a9c72a72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

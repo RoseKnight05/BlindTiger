@@ -24,7 +24,7 @@ public class GunController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            currentWeapon?.TryUse();
+            if (currentWeapon) currentWeapon.TryUse();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -37,7 +37,7 @@ public class GunController : MonoBehaviour
     {
         print(item.weaponData.name + " is now selected!");
         item.Record(); // make last weapon interactable again
-        currentWeapon?.Deselect();
+        if (currentWeapon) currentWeapon.Deselect();
         currentWeapon = data2weapon[item.weaponData]; // select weapon
         currentWeapon.Select();
         item.Unrecord(); // make the new weapon non-interactable

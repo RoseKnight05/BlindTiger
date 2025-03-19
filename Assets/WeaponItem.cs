@@ -9,8 +9,7 @@ public class WeaponItem : MonoBehaviour, IInteractable
 
     public static List<WeaponItem> allItems = new List<WeaponItem>();
 
-    private void Start() => Init();
-    public void Init()
+    private void Start()
     {
         allItems.Add(this);
         Record();
@@ -23,8 +22,8 @@ public class WeaponItem : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        onPickedUpEvent?.Invoke();
-        onAnyPickedUpEvent?.Invoke(this);
+        if (onPickedUpEvent != null) onPickedUpEvent.Invoke();
+        if (onAnyPickedUpEvent != null) onAnyPickedUpEvent.Invoke(this);
     }
 
     public void Record()
