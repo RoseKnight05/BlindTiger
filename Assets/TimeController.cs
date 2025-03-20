@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
+    [Header("Settings")]
     public float dayDurationSeconds = 5 * 60;
     public float nightDurationSeconds = 3 * 60;
     private float totalCycleTime { get { return dayDurationSeconds + nightDurationSeconds; } }
 
+    [SerializeField] private Transform mainLight;
+    [SerializeField] private float defaultTime = 0.4f;
+
     /// <summary>
+    [Header("Serialized values")]
     /// 0.0 - 1.0 value, similar to 24h time (covers one day and one night cycle)
     /// </summary>
     public float time;
@@ -21,8 +26,6 @@ public class TimeController : MonoBehaviour
         Night
     }
 
-    [SerializeField] private Transform mainLight;
-    [SerializeField] private float defaultTime = 0.4f;
     float rotSpeed = 1.0f;
 
     private void RotateLight(float t)
@@ -33,7 +36,7 @@ public class TimeController : MonoBehaviour
     private void Start()
     {
         time = defaultTime;
-        dayTime = (dayDurationSeconds - time * totalCycleTime) / dayDurationSeconds;
+        dayTime = (time * totalCycleTime) / dayDurationSeconds;
         RotateLight(time);
     }
 

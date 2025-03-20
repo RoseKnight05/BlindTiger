@@ -633,14 +633,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21cb6834fc650a478a6e853a5ec5947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayDurationSeconds: 20
-  nightDurationSeconds: 5
+  dayDurationSeconds: 300
+  nightDurationSeconds: 180
+  mainLight: {fileID: 370486510}
+  defaultTime: 0.2
   time: 0
   dayTime: 0
   nightTime: 0
   state: 0
-  mainLight: {fileID: 370486510}
-  defaultTime: 0
 --- !u!1 &402263275
 GameObject:
   m_ObjectHideFlags: 0
