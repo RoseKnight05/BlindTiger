@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance { get; private set; }
 
-    [HideInInspector] public new Camera camera;
+    [HideInInspector] public Camera camera;
     public GunController gunController;
 
     [Header("Locomotion")]
@@ -41,38 +41,52 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            int d = 
-                Physics.RaycastNonAlloc(new Ray(camera.transform.position, camera.transform.rotation * camera.transform.forward), interactionHits, maxInteractionDistance, interactablesLayerMask, QueryTriggerInteraction.Collide);
-            
-            if (d == 0 || !interactionHits[0].transform.gameObject.TryGetInterface<IInteractable>(out IInteractable interactable)) return; // no interactables found
+            // Perform raycast
+            int hits = Physics.RaycastNonAlloc(
+                new Ray(camera.transform.position, camera.transform.rotation * camera.transform.forward),
+                interactionHits, maxInteractionDistance, interactablesLayerMask, QueryTriggerInteraction.Collide
+            );
 
-            interactable.Interact();
+            // If no hits, return
+            if (hits == 0 || interactionHits[0].transform == null)
+                return;
+
+            // Check if the object has an IInteractable component and interact if so
+            IInteractable interactable = interactionHits[0].transform.gameObject.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
         }
     }
 
     private void UpdateMovement()
     {
-        // Ground check
+        // Check if the player is grounded
         isGrounded = controller.isGrounded;
 
         // Reset vertical velocity if grounded
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;  // Small downward force to keep grounded
+            velocity.y = -2f;  // Small downward force to maintain grounded state
         }
 
-        // Reset horizontal velocity (important for stopping drift)
+        // Reset horizontal velocity to prevent unwanted drifting
         velocity.x = 0f;
         velocity.z = 0f;
 
+        // Get player input for movement
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
         isSprinting = Input.GetKey(KeyCode.LeftShift);
 
+        // Calculate the movement direction
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
+        // Move the player, adjusting for walk speed and sprinting
         controller.Move(move * walkSpeed * (isSprinting ? sprintFactor : 1) * Time.deltaTime);
 
+        // Jump if the player presses the jump button and is grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -84,7 +98,7 @@ public class PlayerController : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
         }
 
-        // Apply vertical movement (gravity + jumping) to the controller
+        // Apply vertical velocity (gravity or jump) to the character controller
         controller.Move(velocity * Time.deltaTime);
     }
 
