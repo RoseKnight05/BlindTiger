@@ -32,13 +32,39 @@ public class AIBotChase : MonoBehaviour
 
         if (distance <= chaseRange && distance > stopRange)
         {
-            agent.SetDestination(player.position);
-            animator.SetBool("IsWalking", true);
+            Chase();
+        }
+        else if (distance <= stopRange)
+        {
+            Aim();
         }
         else
         {
-            agent.SetDestination(transform.position);
-            animator.SetBool("IsWalking", false);
+            Idle();
         }
+    }
+
+    private void Chase()
+    {
+        agent.SetDestination(player.position);
+        animator.SetBool("IsWalking", true);
+        animator.SetBool("IsClose", false);
+    }
+
+    private void Aim()
+    {
+        agent.SetDestination(transform.position);
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsClose", true);
+        Quaternion prevRot = transform.rotation;
+        transform.LookAt(player.position);
+        transform.rotation = Quaternion.Lerp(prevRot, transform.rotation, Time.deltaTime * 4);
+    }
+
+    private void Idle()
+    {
+        agent.SetDestination(transform.position);
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsClose", false);
     }
 }

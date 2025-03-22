@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7333020461484678626}
   - component: {fileID: 1543955094960557824}
-  - component: {fileID: 5565454487497603862}
   - component: {fileID: 8080507328139285713}
   - component: {fileID: 7784152400941065856}
   - component: {fileID: 2486587890679575134}
@@ -60,20 +59,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5565454487497603862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7242086134211377303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30142f4f2cc834d7d89e399013cabc3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseRange: 10
-  stopRange: 2
 --- !u!114 &8080507328139285713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30142f4f2cc834d7d89e399013cabc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 10
-  stopRange: 2
+  chaseRange: 14
+  stopRange: 6
 --- !u!114 &3955922008793803937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,17 +247,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bc59d3cef81c9894ead6f3b75d93d271,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc59d3cef81c9894ead6f3b75d93d271,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc59d3cef81c9894ead6f3b75d93d271,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc59d3cef81c9894ead6f3b75d93d271,
         type: 3}
