@@ -42,8 +42,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             int d = 
-                Physics.RaycastNonAlloc(new Ray(camera.transform.position, camera.transform.rotation * camera.transform.forward), interactionHits, maxInteractionDistance, interactablesLayerMask, QueryTriggerInteraction.Collide);
-            
+                Physics.RaycastNonAlloc(new Ray(camera.transform.position, camera.transform.forward), interactionHits, maxInteractionDistance, interactablesLayerMask, QueryTriggerInteraction.Collide);
             if (d == 0 || !interactionHits[0].transform.gameObject.TryGetInterface<IInteractable>(out IInteractable interactable)) return; // no interactables found
 
             interactable.Interact();
