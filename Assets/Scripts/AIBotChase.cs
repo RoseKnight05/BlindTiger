@@ -12,12 +12,18 @@ public class AIBotChase : MonoBehaviour
     private NavMeshAgent agent;
     public float DistanceToPlayer { get { return Vector3.Distance(transform.position, player.position); } }
 
+
+    private Animator animator;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
 
         player = PlayerController.instance.transform;
         Assert.IsNotNull(player, "Player reference must not be null.");
+
+        animator = GetComponent<Animator>();
+        Assert.IsNotNull(animator, "Animator must not be null.");
     }
 
     void Update()
@@ -27,10 +33,12 @@ public class AIBotChase : MonoBehaviour
         if (distance <= chaseRange && distance > stopRange)
         {
             agent.SetDestination(player.position);
+            animator.SetBool("IsWalking", true);
         }
         else
         {
             agent.SetDestination(transform.position);
+            animator.SetBool("IsWalking", false);
         }
     }
 }
