@@ -88,7 +88,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -124,12 +124,169 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
     human: []
-    skeleton: []
+    skeleton:
+    - name: PigCopBaseFinalColoured(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PigCopRig_Skeleton
+      parentName: PigCopBaseFinalColoured(Clone)
+      position: {x: -0.000008921623, y: 0.0061889836, z: 0.006185708}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PigCopRig_Hips
+      parentName: PigCopRig_Skeleton
+      position: {x: -0, y: 0.13272122, z: -0.009814603}
+      rotation: {x: -0.50082594, y: 0.49917272, z: 0.500826, w: -0.49917272}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+    - name: PigCopRig_LeftLegBase
+      parentName: PigCopRig_Hips
+      position: {x: 0.008228003, y: 0.008253924, z: 0.017823482}
+      rotation: {x: 0.05246736, y: -0.0034443135, z: -0.9966568, w: -0.06253598}
+      scale: {x: 0.9999997, y: 0.9999997, z: 1.0000002}
+    - name: PigCopRig_LeftKnee
+      parentName: PigCopRig_LeftLegBase
+      position: {x: -0.053763084, y: -0.0048181564, z: 0.00006081386}
+      rotation: {x: -0.004442682, y: -0.030752113, z: 0.05960746, w: 0.9977382}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: PigCopRig_LeftFoot
+      parentName: PigCopRig_LeftKnee
+      position: {x: -0.056945205, y: 0.007159841, z: -0.00040376527}
+      rotation: {x: 0.05718952, y: -0.055600546, z: -0.52262294, w: -0.8488247}
+      scale: {x: 1.0000004, y: 1.0000007, z: 1.0000002}
+    - name: PigCopRig_LeftToeBase
+      parentName: PigCopRig_LeftFoot
+      position: {x: -0.021086728, y: -3.0620443e-17, z: -3.6385822e-18}
+      rotation: {x: -0, y: -0, z: 0.000000009778886, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: joint2
+      parentName: PigCopRig_LeftToeBase
+      position: {x: -0.009889371, y: -0.0037358757, z: 0.0031080868}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: PigCopRig_RightLegBase
+      parentName: PigCopRig_Hips
+      position: {x: 0.008228003, y: 0.008253924, z: -0.017823482}
+      rotation: {x: -0.0032923073, y: -0.052477002, z: 0.062528, w: -0.99665725}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000002}
+    - name: PigCopRig_RightKnee
+      parentName: PigCopRig_RightLegBase
+      position: {x: 0.0536338, y: 0.0058997665, z: -0.000074465745}
+      rotation: {x: -0.0044427845, y: -0.030752184, z: 0.05960751, w: 0.99773824}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: PigCopRig_RightFoot
+      parentName: PigCopRig_RightKnee
+      position: {x: 0.05741208, y: -0.0073303245, z: 0.00024294032}
+      rotation: {x: -0.05718946, y: 0.05560057, z: 0.522623, w: 0.8488246}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PigCopRig_RightToeBase
+      parentName: PigCopRig_RightFoot
+      position: {x: 0.020477273, y: 5.4205534e-18, z: 1.5716213e-17}
+      rotation: {x: 0.000025469806, y: -0.00000001117587, z: -0.00000009569338, w: 1}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000004}
+    - name: joint1
+      parentName: PigCopRig_RightToeBase
+      position: {x: 0.008993431, y: 0.003956777, z: -0.003201333}
+      rotation: {x: -0, y: -0, z: 4.3015716e-16, w: 1}
+      scale: {x: 0.9999998, y: 1, z: 0.99999994}
+    - name: PigCopRig_Spine
+      parentName: PigCopRig_Hips
+      position: {x: -0.01934666, y: 0.003663872, z: -5.4210105e-21}
+      rotation: {x: -0.000000059604645, y: -0, z: -0.03931701, w: -0.9992268}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: PigCopRig_Spine1
+      parentName: PigCopRig_Spine
+      position: {x: -0.024754802, y: 0.0011930687, z: 8.673617e-21}
+      rotation: {x: -0.000000028567008, y: 0.000000031819745, z: 0.014590351, w: 0.99989355}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: PigCopRig_Spine2
+      parentName: PigCopRig_Spine1
+      position: {x: -0.020587897, y: -0.0057658604, z: -3.2526064e-21}
+      rotation: {x: 0.000000025997926, y: -0.00000002876137, z: 0.08012801, w: 0.9967846}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: PigCopRig_LeftShoulderblade
+      parentName: PigCopRig_Spine2
+      position: {x: -0.006211128, y: -0.0053876857, z: 0.015754128}
+      rotation: {x: -0.36118385, y: 0.48199835, z: 0.42174044, w: 0.6777601}
+      scale: {x: 1.0000001, y: 1, z: 0.9999998}
+    - name: PigCopRig_LeftArmBase
+      parentName: PigCopRig_LeftShoulderblade
+      position: {x: -0.018287627, y: 0.0010674141, z: 0.011219843}
+      rotation: {x: 0.6039091, y: 0.23079425, z: -0.054858737, w: 0.76093256}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
+    - name: PigCopRig_LeftElbow
+      parentName: PigCopRig_LeftArmBase
+      position: {x: -0.03803524, y: -0.005791055, z: -0.0049093324}
+      rotation: {x: 0.15530229, y: -0.052114103, z: 0.046526205, w: 0.98539364}
+      scale: {x: 0.9999998, y: 1.0000001, z: 1.0000001}
+    - name: PigCopRig_LeftWrist
+      parentName: PigCopRig_LeftElbow
+      position: {x: -0.036476877, y: 3.0749056e-17, z: 6.8521574e-19}
+      rotation: {x: 0.000000014901158, y: -0.0000000037252894, z: -0.0000000018626447,
+        w: 1}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1}
+    - name: joint3
+      parentName: PigCopRig_LeftWrist
+      position: {x: -0.0151524, y: 0.010362225, z: 0.0026587837}
+      rotation: {x: -0, y: -0, z: 5.5511125e-17, w: 1}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: joint4
+      parentName: PigCopRig_LeftWrist
+      position: {x: -0.020024845, y: -0.0013295913, z: -0.000008669486}
+      rotation: {x: -0.6985515, y: -0.41815132, z: -0.10966278, w: 0.57021874}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PigCopRig_RightShoulderblade
+      parentName: PigCopRig_Spine2
+      position: {x: -0.0052674543, y: -0.0029930894, z: -0.014932075}
+      rotation: {x: 0.5071431, y: 0.38937148, z: -0.652667, w: 0.40647474}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PigCopRig_RightArmBase
+      parentName: PigCopRig_RightShoulderblade
+      position: {x: 0.017795486, y: -0.0009726466, z: -0.008687709}
+      rotation: {x: -0.62657815, y: -0.20704974, z: 0.01658751, w: -0.7511692}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000002}
+    - name: PigCopRig_RightElbow
+      parentName: PigCopRig_RightArmBase
+      position: {x: 0.03772647, y: 0.0059687463, z: 0.005488528}
+      rotation: {x: 0.1537731, y: -0.06138193, z: 0.051036198, w: 0.9848764}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: PigCopRig_RightWrist
+      parentName: PigCopRig_RightElbow
+      position: {x: 0.036800772, y: 1.4566255e-17, z: 1.639899e-16}
+      rotation: {x: -0.000000014901158, y: -0.0000000037252894, z: 0.000000013038513,
+        w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: joint5
+      parentName: PigCopRig_RightWrist
+      position: {x: 0.013831153, y: -0.009895271, z: -0.0028512788}
+      rotation: {x: -0, y: -0, z: -5.5511125e-17, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: joint6
+      parentName: PigCopRig_RightWrist
+      position: {x: 0.020161457, y: 0.00092522055, z: 0.0002633459}
+      rotation: {x: 0.57021874, y: -0.10966273, z: 0.41815144, w: 0.6985514}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1}
+    - name: PigCopRig_Neck
+      parentName: PigCopRig_Spine2
+      position: {x: -0.021424932, y: 0.0027486864, z: -2.2054313e-38}
+      rotation: {x: -0.000000051396512, y: 0.0000000643814, z: -0.044875648, w: 0.99899256}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: PigCopRig_Head
+      parentName: PigCopRig_Neck
+      position: {x: -0.016589573, y: 0.007024256, z: -2.1684043e-21}
+      rotation: {x: -3.5527133e-15, y: -0, z: 0.000000003725293, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: PigCopBaseLowPolyFinal2
+      parentName: PigCopBaseFinalColoured(Clone)
+      position: {x: -0, y: 0.13323143, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.09531807, y: 0.09531807, z: 0.09531807}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -140,7 +297,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

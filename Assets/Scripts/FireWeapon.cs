@@ -23,7 +23,12 @@ public class FireWeapon : Weapon
         Debug.Log("Shot fired!");
         if (gunfireEffect != null)
         {
-            gunfireEffect.Play();  // Plays the shooting effect (optional)
+            var copy = Instantiate(gunfireEffect);
+            copy.transform.SetParent(null);
+            copy.transform.position = gunfireEffect.transform.position;
+            copy.transform.rotation = gunfireEffect.transform.rotation;
+            copy.Play();  // Plays the shooting effect (optional)
+            Destroy(copy, 3);
         }
 
         if (onUseSound != null)
