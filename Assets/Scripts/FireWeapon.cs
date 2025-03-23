@@ -44,7 +44,7 @@ public class FireWeapon : Weapon
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, data.range))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, data.range, LayerMask.NameToLayer("default"), QueryTriggerInteraction.Collide))
         {
             HealthComponent healthComp = hit.transform.GetComponent<HealthComponent>();
             if (healthComp != null)
