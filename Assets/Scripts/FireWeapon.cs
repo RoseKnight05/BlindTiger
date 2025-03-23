@@ -1,10 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class FireWeapon : Weapon
 {
     public ParticleSystem gunfireEffect;
+    private AudioSource audioSource;
 
     public override bool IsReady => Time.time - LastTimeUsed > data.delay;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public override void Select()
     {
@@ -33,7 +40,7 @@ public class FireWeapon : Weapon
 
         if (onUseSound != null)
         {
-            AudioSource.PlayClipAtPoint(onUseSound, transform.position);  // Plays the firing sound (optional)
+            audioSource.PlayOneShot(onUseSound);  // Plays the firing sound (optional)
         }
 
         RaycastHit hit;
