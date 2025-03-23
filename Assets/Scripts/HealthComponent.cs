@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
     public float health = 100f;  // AI's starting health
+    public event Action onDiedEvent;
+    public bool destroyOnDeath = true;
 
     public void TakeDamage(float damage)
     {
@@ -17,7 +20,10 @@ public class HealthComponent : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " has died.");
+
+        onDiedEvent?.Invoke();
         
-        Destroy(gameObject);
+        if (destroyOnDeath)
+            Destroy(gameObject);
     }
 }

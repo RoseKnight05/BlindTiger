@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58bc97fff9c418d4b922e4b58e1d3fe4, type: 3}
   m_Name: Weapon_pistol
   m_EditorClassIdentifier: 
-  damagePerUse: 60
-  range: 10
+  damagePerUse: 50
+  range: 18
   delay: 2
   name: pistol
   index: 0
