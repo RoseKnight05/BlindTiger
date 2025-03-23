@@ -58,6 +58,7 @@ public class AIBotChase : MonoBehaviour
         animator.SetBool("IsClose", true);
         Quaternion prevRot = transform.rotation;
         transform.LookAt(player.position);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         transform.rotation = Quaternion.Lerp(prevRot, transform.rotation, Time.deltaTime * 4);
     }
 

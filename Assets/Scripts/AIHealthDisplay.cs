@@ -9,8 +9,9 @@ public class AIHealthDisplay : MonoBehaviour
     void Update()
     {
         // Update the text to show the current health
-        if (aiHealth != null)
+        if (aiHealth != null && healthText != null)
         {
+            
             healthText.text = "Health: " + aiHealth.health.ToString("F0");
         }
     }

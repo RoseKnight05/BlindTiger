@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 2249995374319357428}
   - component: {fileID: 5324685430579799416}
   - component: {fileID: 4950082697418394555}
-  - component: {fileID: 4491562864906219054}
   - component: {fileID: 2359430416442888921}
+  - component: {fileID: 7856485135531690396}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -33,14 +33,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594129451251514}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.26513544, z: 0, w: 0.96421117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.31, y: 3.36, z: 6.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1928554337987931190}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 30.75, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33529501349083582
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -190,23 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   destroyOnDeath: 0
---- !u!114 &4491562864906219054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594129451251514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95235c832e8574c268a021fea133656d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 2
-  playerBody: {fileID: 4578752923344752}
-  xRotation: 0
-  maxLookAngle: 90
-  minLookAngle: -90
 --- !u!82 &2359430416442888921
 AudioSource:
   m_ObjectHideFlags: 0
@@ -303,6 +286,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7856485135531690396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594129451251514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1d3594e315846d087cca775cdb8fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 2
+  playerBody: {fileID: 4578752923344752}
+  xRotation: 0
+  maxLookAngle: 90
+  minLookAngle: -90
 --- !u!1 &6752238366532460331
 GameObject:
   m_ObjectHideFlags: 0
