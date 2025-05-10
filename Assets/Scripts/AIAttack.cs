@@ -10,6 +10,7 @@ public class AIAttack : MonoBehaviour
     private void Start()
     {
         bot = GetComponent<AIBotChase>();
+        playerTarget = PlayerController.instance.transform;
 
         // Dynamically create the pistol GameObject and add the Pistol component
         GameObject pistolObject = new GameObject("Pistol"); // Create a new GameObject for the pistol

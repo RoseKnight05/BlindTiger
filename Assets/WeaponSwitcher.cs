@@ -68,7 +68,7 @@ public class WeaponSwitcher : MonoBehaviour
             }
 
             // Spawn bullet trail
-            SpawnBulletTrail();
+            //SpawnBulletTrail();
             Debug.Log("Firing pistol");
         }
         else if (currentWeapon == shotgun)
@@ -80,7 +80,7 @@ public class WeaponSwitcher : MonoBehaviour
             }
 
             // Spawn bullet trail
-            SpawnBulletTrail();
+            //SpawnBulletTrail();
             Debug.Log("Firing shotgun");
         }
     }
